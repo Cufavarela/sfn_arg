@@ -1,38 +1,189 @@
 .App {
   text-align: center;
+  font-family: "Century Gothic", sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.bg {
+  background-image: url("./assets/BG.jpg");
+  background-size: cover;
+  opacity: 0.8;
   min-height: 100vh;
+  padding: 20px;
+}
+
+.bg.noScroll {
+  min-height: calc(100vh - 150px);
+}
+
+.socialNetwork {
+  width: 40px;
+}
+
+.navbarContainer {
+  background-color: darkred;
+  color: white;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  padding: 8px 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.navbarMenu {
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  width: 200px;
+  margin: 20px;
+}
+
+.navbarItem a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  position: relative;
+  font-weight: bold;
+}
+
+.productList {
+  display: flex;
+  justify-content: space-around;
+}
+
+.productCard {
+  width: 345px;
+  min-height: 400px;
+  position: relative;
+}
+
+.productImg {
+  height: 250px;
+  width: 345px;
+  background-size: cover;
+}
+
+.productActions {
+  position: absolute;
+  bottom: 0px;
+}
+
+.itemInList {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid black;
+  background-color: rgb(118, 199, 111);
+  margin: 10px 0;
+}
+
+.itemListNoStock {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid black;
+  background-color: rgb(165, 95, 95);
+  margin: 10px 0;
+}
+
+.bgInfoItem {
+  background-color: rgba(0, 0, 0, 0.39);
+  border-radius: 5px;
+  padding: 15px 15px;
+  padding-bottom: 60px;
+  margin: 15px 0px;
+  position: relative;
+}
+
+.smallInfoItemsContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.bgInfoItem.small {
+  width: 50%;
+  margin: 15px 15px;
+}
+
+.title {
+  color: white;
+  font-weight: 900;
+  text-shadow: 2px 3px 1px black;
+}
+
+.text {
+  color: white;
+  font-weight: 600;
+  text-shadow: 2px 1px 3px black;
+}
+
+.icons {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+}
+
+.redes {
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+.loginContainer {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.modalImg {
+  width: 100%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 960px) {
+  .logo {
+    width: 150px;
+    margin: 20px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .navbarContainer {
+    justify-content: center;
+  }
+
+  .productList {
+    align-items: center;
+  }
+
+  .productCard {
+    width: 280px;
+    min-height: 400px;
+  }
+
+  .productImg {
+    height: 200px;
+    width: 280px;
+  }
+
+  .smallInfoItemsContainer {
+    flex-direction: column;
+  }
+
+  .bgInfoItem.small {
+    width: 90%;
+    max-width: 100%;
+    margin: 10px 0px;
   }
 }
