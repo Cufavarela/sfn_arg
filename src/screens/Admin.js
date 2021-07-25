@@ -16,6 +16,8 @@ import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { getFirestore, storage } from "../components/firebase";
 import { LoginForm } from "../components/loginForm";
+import { AdminProductList } from "../components/AdminProductList";
+import { UploadProduct } from "../components/UploadProduct";
 
 const AdminView = () => {
   const [isLogged, setIsLogged] = useState(false);
@@ -116,6 +118,17 @@ const AdminView = () => {
     setIsEditing({ editing: true, productId: product.id });
   };
 
+  const clearForm = () => {
+    setProductForm({
+      image: "",
+      name: "",
+      description: "",
+      price: 0,
+      isInStock: true,
+    });
+    setIsEditing({ editing: false, productId: "" });
+  };
+
   const updateProduct = (productId) => {
     productsCollection
       .doc(productId)
@@ -149,175 +162,23 @@ const AdminView = () => {
         <>
           <Typography variant="h5">Editar la lista de productos</Typography>
           <Grid container spacing={2}>
-            <Grid item xs={12} md={6}>
-              <Typography variant="body1">Productos disponibles</Typography>
-              {isLoading ? (
-                <CircularProgress />
-              ) : (
-                <Box>
-                  {products.map((product) => (
-                    <Grid container spacing={2}>
-                      <Grid item xs={4}>
-                        <Typography variant="h6">{product.name}</Typography>
-                      </Grid>
-                      <Grid item xs={3}>
-                        <Typography variant="h6">${product.price}</Typography>
-                      </Grid>
-                      <Grid item xs={2}>
-                        <Typography variant="h6">
-                          {product.isInStock ? "Stock ✔" : "Stock ❌"}
-                        </Typography>
-                      </Grid>
-                      <Grid item xs={3}>
-                        <Button
-                          onClick={() => removeProduct(product.id)}
-                          size="mdall"
-                        >
-                          <DeleteIcon />
-                        </Button>
-                        <Button
-                          onClick={() => editProduct(product)}
-                          size="small"
-                        >
-                          <EditIcon />
-                        </Button>
-                      </Grid>
-                    </Grid>
-                  ))}
-                </Box>
-              )}
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <Typography variant="body1">Agregar producto</Typography>
-              <Grid container spacing={1}>
-                <Grid item xs={8}>
-                  <TextField
-                    fullWidth
-                    label="Name"
-                    variant="outlined"
-                    onChange={(e) =>
-                      setProductForm({
-                        ...productForm,
-                        name: e.target.value,
-                      })
-                    }
-                    value={productForm.name || ""}
-                    onBlur={(e) =>
-                      setProductForm({
-                        ...productForm,
-                        name: e.target.value,
-                      })
-                    }
-                    id="name"
-                  />
-                </Grid>
-                <Grid item xs={4}>
-                  <TextField
-                    fullWidth
-                    label="Price"
-                    value={productForm.price || ""}
-                    variant="outlined"
-                    onChange={(e) =>
-                      setProductForm({
-                        ...productForm,
-                        price: parseInt(e.target.value, 10),
-                      })
-                    }
-                    onBlur={(e) =>
-                      setProductForm({
-                        ...productForm,
-                        price: parseInt(e.target.value, 10),
-                      })
-                    }
-                    id="price"
-                    InputProps={{
-                      startAdornment: (
-                        <InputAdornment position="start">
-                          <AttachMoneyIcon />
-                        </InputAdornment>
-                      ),
-                    }}
-                  />
-                </Grid>
-                <Grid item xs={12}>
-                  <TextField
-                    fullWidth
-                    multiline
-                    label="Description"
-                    variant="outlined"
-                    value={productForm.description || ""}
-                    onChange={(e) =>
-                      setProductForm({
-                        ...productForm,
-                        description: e.target.value,
-                      })
-                    }
-                    onBlur={(e) =>
-                      setProductForm({
-                        ...productForm,
-                        description: e.target.value,
-                      })
-                    }
-                    id="description"
-                  />
-                </Grid>
-                <Grid item xs={3}>
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={productForm.isInStock}
-                        onChange={(e) =>
-                          setProductForm({
-                            ...productForm,
-                            isInStock: e.target.checked,
-                          })
-                        }
-                        color="primary"
-                      />
-                    }
-                    label="Hay stock!"
-                  />
-                </Grid>
-                <Grid item xs={9}>
-                  <input
-                    style={{ display: "none" }}
-                    id="image"
-                    type="file"
-                    onChange={addImage}
-                    ref={fileInputRef}
-                  />
-                  <TextField
-                    fullWidth
-                    label="Image"
-                    variant="outlined"
-                    id="imageHelper"
-                    onClick={handleAttach}
-                    value={productForm.image}
-                  />
-                  <Typography variant="subtitle2">
-                    {uploadedComplete
-                      ? "La imagen se subió correctamente ✔ "
-                      : "Todavía no se subió nada ❌"}
-                  </Typography>
-                </Grid>
-                <Grid item xs={12}>
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      if (isEditing.editing) {
-                        updateProduct(isEditing.productId);
-                      } else {
-                        addProduct();
-                      }
-                    }}
-                  >
-                    {isEditing.editing ? "Actualzar" : "Agregar producto"}
-                  </Button>
-                </Grid>
-              </Grid>
-            </Grid>
+            <AdminProductList
+              isLoading={isLoading}
+              products={products}
+              removeProduct={removeProduct}
+              editProduct={editProduct}
+            />
+            <UploadProduct
+              setProductForm={setProductForm}
+              productForm={productForm}
+              addImage={addImage}
+              handleAttach={handleAttach}
+              uploadedComplete={uploadedComplete}
+              isEditing={isEditing}
+              updateProduct={updateProduct}
+              addProduct={addProduct}
+              clearForm={clearForm}
+            />
           </Grid>
         </>
       ) : (

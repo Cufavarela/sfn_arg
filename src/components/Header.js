@@ -25,7 +25,7 @@ const Header = () => {
       </Box>
       <Box style={{ display: "flex", alignItems: "center" }}>
         <Button
-          href="https://api.whatsapp.com/send?phone=541166145318&text=%C2%A1Hola!%20Seba%20soy%20el%20espiritu%20de%20cufa"
+          href="https://api.whatsapp.com/send?phone=541166145318&text=%C2%A1Hola!%20quiero%20consultar%20sobre%20"
           target="blank"
         >
           <img className="socialNetwork" src={whatsapp} alt="logo de wp" />
