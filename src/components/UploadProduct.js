@@ -14,7 +14,6 @@ export const UploadProduct = ({
   setProductForm,
   productForm,
   addImage,
-  handleAttach,
   uploadedComplete,
   isEditing,
   updateProduct,
@@ -22,6 +21,9 @@ export const UploadProduct = ({
   clearForm,
 }) => {
   const fileInputRef = useRef(null);
+  const handleAttach = () => {
+    fileInputRef.current.click();
+  };
 
   return (
     <Grid item xs={12} sm={6}>

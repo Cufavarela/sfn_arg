@@ -22,7 +22,6 @@ import { UploadProduct } from "../components/UploadProduct";
 const AdminView = () => {
   const [isLogged, setIsLogged] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const fileInputRef = useRef(null);
   const [products, setProducts] = useState([]);
   const [uploadedComplete, setUploadedCOmplete] = useState(false);
   const db = getFirestore();
@@ -35,10 +34,6 @@ const AdminView = () => {
     price: 0,
     isInStock: true,
   });
-
-  const handleAttach = () => {
-    fileInputRef.current.click();
-  };
 
   const getProducts = () => {
     productsCollection
@@ -172,7 +167,6 @@ const AdminView = () => {
               setProductForm={setProductForm}
               productForm={productForm}
               addImage={addImage}
-              handleAttach={handleAttach}
               uploadedComplete={uploadedComplete}
               isEditing={isEditing}
               updateProduct={updateProduct}
