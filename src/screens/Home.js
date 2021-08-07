@@ -70,7 +70,7 @@ export const Home = () => {
 
   return (
     <Box className="bg">
-      <Container>
+      <Container disableGutters>
         <Paper elevation={3} className="filterBar">
           <Filter
             sortBy={sortBy}

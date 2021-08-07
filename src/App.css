@@ -29,12 +29,16 @@
   flex-wrap: wrap;
 }
 
+.logoAndButtons {
+  display: flex;
+  justify-content: center;
+}
+
 .navbarMenu {
   display: flex;
   justify-content: space-around;
   list-style-type: none;
   align-items: center;
-  flex-wrap: wrap;
 }
 
 .logo {
@@ -182,6 +186,31 @@
   margin-bottom: 10px;
 }
 
+@media only screen and (max-width: 480px) {
+  .navbarContainer {
+    flex-direction: column;
+  }
+
+  .logoAndButtons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbarMenu {
+    margin: 0;
+    padding: 0;
+  }
+
+  .filterBar {
+    width: auto;
+  }
+
+  .homeContainer {
+    padding: 0;
+    margin: 0;
+  }
+}
+
 @media only screen and (max-width: 960px) {
   .logo {
     width: 150px;
@@ -190,6 +219,11 @@
 
   .navbarContainer {
     justify-content: center;
+  }
+
+  .navbarMenu {
+    margin: 0;
+    padding: 0;
   }
 
   .productList {

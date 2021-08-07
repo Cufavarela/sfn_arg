@@ -7,9 +7,7 @@ import { Box, Button, Typography } from "@material-ui/core";
 const Header = () => {
   return (
     <div className="navbarContainer">
-      <Box
-        style={{ display: "flex", justifyContent: "center", flexWrap: "wrap" }}
-      >
+      <Box className="logoAndButtons">
         <img className="logo" src={logo} alt="logo de sfn" />
         <ul className="navbarMenu">
           <li className="navbarItem">

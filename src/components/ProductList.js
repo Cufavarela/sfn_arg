@@ -3,7 +3,7 @@ import Product from "./Product";
 
 const ProductList = ({ products, isLoading }) => {
   return (
-    <Container>
+    <Container disableGutters>
       {isLoading ? (
         <CircularProgress />
       ) : (
