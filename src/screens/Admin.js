@@ -33,6 +33,7 @@ const AdminView = () => {
     description: "",
     price: 0,
     isInStock: true,
+    sale: false,
   });
 
   const getProducts = () => {
@@ -62,6 +63,7 @@ const AdminView = () => {
         description: "",
         price: 0,
         isInStock: true,
+        sale: false,
       });
     });
   };
@@ -109,6 +111,7 @@ const AdminView = () => {
       description: product.description,
       price: product.price,
       isInStock: product.isInStock,
+      sale: product.sale,
     });
     setIsEditing({ editing: true, productId: product.id });
   };
@@ -120,6 +123,7 @@ const AdminView = () => {
       description: "",
       price: 0,
       isInStock: true,
+      sale: false,
     });
     setIsEditing({ editing: false, productId: "" });
   };
@@ -137,6 +141,7 @@ const AdminView = () => {
           description: "",
           price: 0,
           isInStock: true,
+          sale: false,
         });
       });
     setIsEditing({

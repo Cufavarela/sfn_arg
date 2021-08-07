@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import {
+  Box,
   Button,
   Checkbox,
   FormControlLabel,
@@ -101,21 +102,38 @@ export const UploadProduct = ({
           />
         </Grid>
         <Grid item xs={3}>
-          <FormControlLabel
-            control={
-              <Checkbox
-                checked={productForm.isInStock}
-                onChange={(e) =>
-                  setProductForm({
-                    ...productForm,
-                    isInStock: e.target.checked,
-                  })
-                }
-                color="primary"
-              />
-            }
-            label="Hay stock!"
-          />
+          <Box>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={productForm.isInStock}
+                  onChange={(e) =>
+                    setProductForm({
+                      ...productForm,
+                      isInStock: e.target.checked,
+                    })
+                  }
+                  color="primary"
+                />
+              }
+              label="Hay stock!"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={productForm.sale}
+                  onChange={(e) =>
+                    setProductForm({
+                      ...productForm,
+                      sale: e.target.checked,
+                    })
+                  }
+                  color="primary"
+                />
+              }
+              label="Es oferta!"
+            />
+          </Box>
         </Grid>
         <Grid item xs={9}>
           <input

@@ -1,35 +1,7 @@
 import { Grid, Container, CircularProgress } from "@material-ui/core";
-import { useEffect, useState } from "react";
 import Product from "./Product";
-import { getFirestore } from "../components/firebase";
 
-const ProductList = () => {
-  const [products, setProducts] = useState([]);
-  const db = getFirestore();
-  const productsCollection = db.collection("products");
-  const [isLoading, setIsLoading] = useState(true);
-
-  const getProducts = () => {
-    productsCollection
-      .get()
-      .then((querySnapshot) => {
-        if (querySnapshot.size === 0) {
-          alert("No hay productos disponibles");
-        }
-        setProducts(
-          querySnapshot.docs.map((doc) => {
-            return { id: doc.id, ...doc.data() };
-          })
-        );
-      })
-      .catch((err) => alert(err))
-      .finally(() => setIsLoading(false));
-  };
-
-  useEffect(() => {
-    getProducts();
-  }, []);
-
+const ProductList = ({ products, isLoading }) => {
   return (
     <Container>
       {isLoading ? (

@@ -60,18 +60,47 @@
 .productCard {
   width: 345px;
   min-height: 400px;
-  position: relative;
+  margin: auto;
 }
 
 .productImg {
   height: 250px;
-  width: 345px;
-  background-size: cover;
+  width: 100%;
+  object-fit: cover;
+}
+
+.infoContainer {
+  padding: 10px;
+}
+
+.inSale {
+  color: #4caf50;
+  font-weight: bold;
 }
 
 .productActions {
-  position: absolute;
-  bottom: 0px;
+  display: flex;
+  justify-content: center;
+}
+
+.filterBar {
+  width: 100%;
+  background-color: white;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.inputSearch {
+  display: flex;
+  align-items: center;
+}
+
+.inputSort {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .itemInList {

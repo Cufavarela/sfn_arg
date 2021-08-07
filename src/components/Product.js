@@ -5,7 +5,10 @@ import {
   Typography,
   Button,
   CardActions,
+  Box,
+  Paper,
 } from "@material-ui/core";
+import green from "@material-ui/core/colors/green";
 import { useState } from "react";
 import { ProductDetail } from "./ProductDetail";
 
@@ -14,26 +17,28 @@ const Product = ({ product }) => {
 
   return (
     <>
-      <Card raised className="productCard">
-        <CardMedia
-          image={product.image}
-          title={product.name}
-          className="productImg"
-        />
-        <CardContent>
+      <Paper elevation={3} className="productCard">
+        <img src={product.image} alt={product.name} className="productImg" />
+        <Box className="infoContainer">
           <Typography align="left" gutterBottom variant="h5" component="h2">
             {product.name}
           </Typography>
-          <Typography align="left" variant="h5" component="h2">
-            ${product.price}
+          <Typography
+            align="left"
+            className={product.sale && "inSale"}
+            variant="h5"
+            component="h2"
+          >
+            ${product.price}{" "}
+            {product.sale && <span className="inSale">- Oferta</span>}
           </Typography>
           {!product.isInStock && (
             <Typography align="left" variant="subtitle2" color="error">
               Sin stock
             </Typography>
           )}
-        </CardContent>
-        <CardActions className="productActions">
+        </Box>
+        <Box className="productActions">
           <Button
             size="small"
             color="primary"
@@ -52,8 +57,8 @@ const Product = ({ product }) => {
           >
             Contacto
           </Button>
-        </CardActions>
-      </Card>
+        </Box>
+      </Paper>
       {detailModalOpen && (
         <ProductDetail
           detailModalOpen={detailModalOpen}

@@ -33,6 +33,11 @@ const AboutUs = () => {
             isSmall
           />
         </Box>
+        <InfoItem
+          title="Cómo comprar?"
+          info="Contamos con diferentes medios pago para adecuarnos a lo que necesites. Podemos recibir Efectivo, depósitos o transferencias bancarias. También podés abonar con trajeta de débito o crédito, pero estas opciones cuentan con un recargo %."
+          icons="💸 • 👟 • 🏧"
+        />
       </Container>
     </Box>
   );
