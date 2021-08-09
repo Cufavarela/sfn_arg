@@ -59,7 +59,7 @@ export const Home = () => {
 
   const searchByName = (input) => {
     let filteredArray = products.filter((product) =>
-      product.name.toLowerCase().includes(input)
+      product.name.toLowerCase().includes(input.toLowerCase())
     );
     setFilteredProducts(filteredArray);
   };

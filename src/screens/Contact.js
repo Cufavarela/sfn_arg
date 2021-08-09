@@ -15,7 +15,7 @@ const Contact = () => {
           <InfoItem
             title="Envíos"
             info="Envíos GRATIS a todo el país a través de ANDREANI.
-            En CABA entrega prescencial GRATIS dentro de las 24hs desde tu compra."
+            En CABA entrega presencial GRATIS dentro de las 24hs desde tu compra."
             icons="🚚 • 🎁 • 📫"
             isSmall
           />

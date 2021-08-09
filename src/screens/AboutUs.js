@@ -13,7 +13,7 @@ const AboutUs = () => {
             allá de intentar conseguirte lo que estás buscando es darte una
             atención personalizada. Que sientas que estamos trabajando 100% para
             vos y estamos disponibles para cualquier duda o inquietud. Nos
-            caracterizamos por contestar rapido, trabajar de manera eficaz y
+            caracterizamos por contestar rápido, trabajar de manera eficaz y
             estar atentos a todos los detalles, porque al fin y al cabo son los
             que marcan la diferencia!"
           icons="🏃‍♂️ • 👟 • 🏃‍♀️"
@@ -22,7 +22,7 @@ const AboutUs = () => {
           <InfoItem
             title="Envíos"
             info="Envíos GRATIS a todo el país a través de ANDREANI.
-            En CABA entrega prescencial GRATIS dentro de las 24hs desde tu compra."
+            En CABA entrega presencial GRATIS dentro de las 24hs desde tu compra."
             icons="🚚 • 🎁 • 📫"
             isSmall
           />
