@@ -21,7 +21,13 @@ export const AdminProductList = ({
       {isLoading ? (
         <CircularProgress />
       ) : (
-        <Box>
+        <Box
+          style={{
+            maxHeight: "70vh",
+            overflowY: "scroll",
+            overflowX: "hidden",
+          }}
+        >
           {products.map((product) => (
             <Grid container spacing={2}>
               <Grid item xs={4}>

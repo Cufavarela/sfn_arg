@@ -1,20 +1,6 @@
-import {
-  Box,
-  Button,
-  Checkbox,
-  CircularProgress,
-  Container,
-  FormControlLabel,
-  Grid,
-  InputAdornment,
-  TextField,
-  Typography,
-} from "@material-ui/core";
-import React, { useEffect, useRef, useState } from "react";
-import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
-import EditIcon from "@material-ui/icons/Edit";
-import DeleteIcon from "@material-ui/icons/Delete";
-import { getFirestore, storage } from "../components/firebase";
+import { Container, Grid, Typography } from "@material-ui/core";
+import React, { useEffect, useState } from "react";
+import { auth, getFirestore, storage } from "../components/firebase";
 import { LoginForm } from "../components/loginForm";
 import { AdminProductList } from "../components/AdminProductList";
 import { UploadProduct } from "../components/UploadProduct";
@@ -153,6 +139,8 @@ const AdminView = () => {
   useEffect(() => {
     if (isLogged) {
       getProducts();
+    } else {
+      auth.signOut();
     }
   }, [isLogged]);
 
